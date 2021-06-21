@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+         body{
+            background-image:url('https://i.pinimg.com/originals/f9/7d/9f/f97d9fa827948908f8b21634a1c4412d.png');
+            background-size:1600px 700px;
+            background-repeat:no-repeat;
+            filter:brightness(110%);
+        }
+        
+        .container{
+            margin-top:80px;
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+        }
+        .container3{
+            margin-top:0px;
+            width: 820px;
+            height:600px;
+            margin-bottom:40px;
+            display:flex;
+            flex-direction:column;
+            background-image:url('https://i.pinimg.com/originals/51/cf/6d/51cf6d559dee8c795d24a683cddf0871.jpg');
+            background-size:750px 510px;
+            border-radius:15px;
+            background-repeat:no-repeat;
+            margin-left:680px;
+            filter:brightness(115%);
+        }
+        .container31{
+            display:flex;
+            flex-direction:row;
+            margin-left:130px;
+        }
+        .container32{
+            display:flex;
+            flex-direction:row;
+            margin-left:130px;
+        }
+        .container33{
+            display:flex;
+            flex-direction:row;
+            margin-left:130px;
+        }
+        .container2{
+            width:48vw;;
+            height:3vh;
+            margin-top:0px;
+            display:grid;
+            grid-template-columns:repeat(4,100px);
+            grid-gap:20px;
+        }
+        .itm{
+            height:70px;
+            border:3px solid white;
+        }
+        #i1,#i3
+        {
+            color:black;
+            background-color:rgb(132, 255, 16);
+            font-size:30px;
+            font-family:cursive;
+            padding-left:10px;
+            padding-top:10px;
+            margin-left:70px;
+            border:3px solid rgb(8, 94, 37);
+            filter:drop-shadow(7px 7px 5px rgb(68, 255, 68));
+        }
+        #i1{
+            width:200px;
+            margin-left:60px;
+        }
+        #i2{
+            width:5vw;
+            height:50px;
+            font-size:30px;
+            font-weight:bold;
+            margin-left:150px;
+            margin-top:10px;
+        }
+        #i3{
+            width:200px;
+            margin-left:80px;
+        }
+        .items{
+            width:150px;
+            height:19vh;
+            color:white;
+            font-size:90px;
+            font-weight:bold;
+            border-radius:17px;
+            padding-left:45px;
+            padding-top:20px;
+            margin-left:40px;
+            margin-top:20px;
+            background-image:linear-gradient(rgb(7, 97, 133) , black);
+            box-shadow:10px 10px 10px black;
+            transition:all 2s ;
+        }
+        .items:hover{
+            transform:scale(1.1); 
+            transform:scale(1.2);
+            animation-name:davy;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes davy{
+            from{
+                filter:hue-rotate(0deg);
+            }
+            to{
+                filter:hue-rotate(360deg);
+            }
+        }
+        button{
+            width:150px;
+            height:70px;
+            color:white; 
+            background-color:firebrick;
+            font-size:20px;
+            font-weight:bold;
+            margin-left:10px;
+            filter:drop-shadow(4px 4px 7px white);
+            cursor:pointer;   
+        }
+        #i{
+            width:300px;
+            height:100px;
+            font-size:30px;
+            font-weight:bold;
+            color:white;
+            padding-left:25px;
+            padding-top:0px;
+            margin-left:200px;
+            margin-top:70px;
+            border-radius:10px;
+            background-image:linear-gradient(red,black);
+            border:none;
+            box-shadow:5px 5px 7px white;
+            cursor:pointer;
+        }
+        #s1{
+            height:70px;
+            color:white;
+            font-size:40px;
+            background-color:black;
+            border:3px solid white;
+        }
+        #s4{
+            height:70px;
+            color:white;
+            font-size:40px;
+            border:3px solid white;
+            background-color:black;
+        }
+        #s7{
+            height:70px;
+            color:white;
+            font-size:40px;
+            border:3px solid white;
+            background-color:black;
+        }
+        .sp{
+            width:50px;
+            height:50px;
+            color:black;
+            font-size:30px;
+            font-weight:bold;
+            padding-left:7px;
+            padding-top:3px;
+            margin:5px; 
+            display:inline-block;
+            border:none;;
+            background-color:rgb(129, 124, 124);
+            border:3px solid rgb(0, 0, 0);
+        }
+        .s{
+            width:900px;
+            margin-left:300px;
+        }
+        .e{
+            margin-top:20px;
+            font-size:40px;
+        }        
+        #r{
+            margin-top:200px;
+            margin-left:150px;
+            background-image:linear-gradient(purple,black);
+            border-radius:10px;
+        }
+        #spn{
+            width:150px;
+            height:50px;
+            margin-left:10px;
+            background-color:rgb(238, 255, 0);
+            /* color:white; */
+            /* border:none; */
+        }
+         @media (min-width:0px) and (max-width:500px)
+        {
+            body{
+                background-image:url('https://i.pinimg.com/originals/f9/7d/9f/f97d9fa827948908f8b21634a1c4412d.png');
+                background-size:1600px 850px;
+                background-repeat:no-repeat;
+                filter:brightness(110%);
+            }
+            #spn{
+                height:30px;
+                width:100px;
+            }
+            .s{
+                width:700px;
+                margin-left:50px;
+            }
+        span{
+            margin:0px;
+            padding:0px;
+        }
+        #s1,#s4,#s7{
+                width:30px;
+                font-size:20px;
+                height:30px;
+                margin-top:0px;
+            }
+            .sp{
+                width:30px;
+                height:30px;
+                font-size:20px;
+            }
+            .container2{
+                grid-template-columns:repeat(1,200px);
+            }
+            .container3{
+            width: 500px;
+            height:500px;
+            margin-bottom:40px;
+            display:flex;
+            flex-direction:column;
+            background-image:url('https://i.pinimg.com/originals/51/cf/6d/51cf6d559dee8c795d24a683cddf0871.jpg');
+            background-size:500px 500px;
+            background-repeat:no-repeat;
+            margin-left:280px;
+            margin-top:80px;
+        }
+        .items{
+            font-size:30px;
+            padding-left:30px;
+            padding-top:25px;
+        }
+        .container31{
+            display:flex;
+            flex-direction:row;
+            margin-left:80px;
+            width:370px;
+        }
+        .container32{
+            display:flex;
+            flex-direction:row;
+            margin-left:80px;
+            width:370px;
+        }
+        .container33{
+            display:flex;
+            flex-direction:row;
+            margin-left:80px;
+            width:370px;
+        }
+            #i1{
+                margin-left:50px;
+                margin-top:5px;
+                width:130px;
+                height:50px;
+                font-size:15px;
+            }
+            #i2{
+                margin-left:70px;
+                margin-top:10px;
+                width:10px;
+            }
+            #i3{
+                margin-left:50px;
+                margin-top:0px;
+                width:130px;
+                height:50px;
+                font-size:15px;
+            } 
+            #i{
+                width:150px;
+                height:70px;
+                margin-left:50px;
+                margin-top:30px;
+                font-size:15px;
+                font-size:16px; 
+            }
+            #r{
+                width:100px;
+                height:50px;
+                margin-top:10px;
+                margin-left:75px;
+                font-size:15px;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <div class="s">
+        <span class="sp" id="spn">TURN-</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="e">&#128513;</span><span class="sp" id="s1">T</span><span class="sp" id="s2">I</span><span class="sp"id="s3">C</span>&nbsp;&nbsp;&nbsp;<span class="sp"id="s4">T</span><span class="sp"id="s5">A</span><span class="sp"id="s6">C</span>&nbsp;&nbsp;&nbsp;<span class="sp"id="s7">T</span><span class="sp"id="s8">O</span><span class="sp"id="s9">E</span><span class="e">&#128513;</span>
+    </div>
+    <header class="container">
+        <div class="container2">
+            <button onclick="Turn()" id="b1">Enter Player Names</button>         
+            <div class="itm" id="i1">P1-</div>
+            <div id="i2">VS</div>
+            <div class="itm" id="i3">P2-</div>
+            <button id="i" onclick="newG()">NEW GAME&nbsp;&#128077;</button>
+            <button id="r" onclick="reset()">RESET</button>
+        </div>
+        <div class="container3">
+            <div class="container31">
+                <div class="items" id="id1"></div>
+                <div class="items" id="id2"></div>
+                <div class="items" id="id3"></div>
+            </div>
+            <div class="container32">
+                <div class="items" id="id4"></div>
+                <div class="items" id="id5"></div>
+                <div class="items" id="id6"></div>
+            </div>
+            <div class="container33">
+                <div class="items" id="id7"></div>
+                <div class="items" id="id8"></div>
+                <div class="items" id="id9"></div>
+            </div>
+    </div>
+    </header>
+    <script>
+        let n=0;
+        let i=0;
+        let j=0;
+        let name1;
+        let name2;
+        let turn=document.getElementById('spn');
+        alert("Please enter two names of Players and then ENJOY THE GAME");
+        function newG()
+        {
+            document.getElementById('id1').innerHTML='';
+            document.getElementById('id2').innerHTML='';
+            document.getElementById('id3').innerHTML='';
+            document.getElementById('id4').innerHTML='';
+            document.getElementById('id5').innerHTML='';
+            document.getElementById('id6').innerHTML='';
+            document.getElementById('id7').innerHTML='';
+            document.getElementById('id8').innerHTML='';
+            document.getElementById('id9').innerHTML='';
+            document.getElementById('i1').innerHTML='P1-';
+            document.getElementById('i3').innerHTML='P2-';
+            n=0;
+            i=0;
+            j=0;
+            turn.innerHTML='TURN-';
+        }
+        function reset()
+        {
+            document.getElementById('id1').innerHTML='';
+            document.getElementById('id2').innerHTML='';
+            document.getElementById('id3').innerHTML='';
+            document.getElementById('id4').innerHTML='';
+            document.getElementById('id5').innerHTML='';
+            document.getElementById('id6').innerHTML='';
+            document.getElementById('id7').innerHTML='';
+            document.getElementById('id8').innerHTML='';
+            document.getElementById('id9').innerHTML='';
+            n=1;
+            i=0;
+            j=0;
+            turn.innerHTML='TURN-';
+        }
+        function Turn()
+        {
+            name1=prompt("Enter Name-1","");
+            document.getElementById('i1').innerHTML=name1+"-'X'";
+            name2=prompt("Enter Name-2","");           
+            document.getElementById('i3').innerHTML=name2+"-'0'";
+            alert("Click on block in which you want to place your turn");
+            n=1;
+            turn.innerHTML=name1[0]+"-'X'";
+        }
+            let i1=document.getElementById('id1');
+            i1.addEventListener('mousedown',function j1(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if((i1.innerHTML=='X') || (i1.innerHTML=='0'))
+                {
+                    alert( "This block is already filled please place your Character at some another Block");
+                }
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i1.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else 
+                    {
+                        i1.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i1.innerHTML==i2.innerHTML && i2.innerHTML==i3.innerHTML)
+                    {
+                            if(i1.innerHTML=='X')
+                            {
+                                alert(name1 +  " Wins the GAME");
+                                let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                            }
+                            else if(i1.innerHTML=='0')
+                            {
+                                alert(name2 + " Wins the GAME" );
+                                let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                            }
+                    }
+                    else if(i1.innerHTML==i4.innerHTML && i4.innerHTML==i7.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i1.innerHTML==i5.innerHTML && i5.innerHTML==i9.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+
+                        }
+                    }
+                }
+            }
+        });
+        let i2=document.getElementById('id2');
+        i2.addEventListener('mousedown',function j2(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+                console.log("2");
+                if(i2.innerHTML=='X' || (i2.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i2.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else 
+                    {
+                        i2.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }   
+                    ++i;
+                    if(i1.innerHTML==i2.innerHTML && i2.innerHTML==i3.innerHTML)
+                    {
+                            if(i1.innerHTML=='X')
+                            {
+                                alert(name1 +  " Wins the GAME");
+                                let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                            }
+                            else if(i1.innerHTML=='0')
+                            {
+                                alert(name2 + " Wins the GAME" );
+                                let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                            }
+                        }
+                    else if(i2.innerHTML==i5.innerHTML && i5.innerHTML==i8.innerHTML)
+                    {
+                        if(i2.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i2.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+                
+
+                        }
+                    }
+                }
+        }
+        });
+        let i3=document.getElementById('id3');
+        i3.addEventListener('mousedown',function j3(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else{
+
+                if(i3.innerHTML=='X' || (i3.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+            else
+            {
+                if(i%2==0)
+                {
+                    i3.innerHTML='X';
+                    turn.innerHTML=name2[0]+"-'0'";
+                }
+                else
+                {
+                    i3.innerHTML='0';
+                    turn.innerHTML=name1[0]+"-'X'";
+                }    
+                ++i;
+                if(i1.innerHTML==i2.innerHTML && i2.innerHTML==i3.innerHTML)
+                {
+                    if(i1.innerHTML=='X')
+                    {
+                        alert(name1 +  " Wins the GAME");
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                    else if(i1.innerHTML=='0')
+                    {
+                        alert(name2 + " Wins the GAME" );
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                }
+                else if(i3.innerHTML==i6.innerHTML && i6.innerHTML==i9.innerHTML)
+                {
+                    if(i3.innerHTML=='X')
+                    {
+                        alert(name1 +  " Wins the GAME");
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                    else if(i3.innerHTML=='0')
+                    {
+                        alert(name2 + " Wins the GAME" );
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                }
+                else if(i3.innerHTML==i5.innerHTML && i5.innerHTML==i7.innerHTML)
+                {
+                    if(i3.innerHTML=='X')
+                    {
+                        alert(name1 +  " Wins the GAME");
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                    else if(i3.innerHTML=='0')
+                    {
+                        alert(name2 + " Wins the GAME" );
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                    }
+                }
+                else
+                {
+                    ++j;
+    
+                    if(j==9)
+                    {
+                        alert("Game DRAW!");
+                        let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+
+                    }
+                }
+            }
+        }
+        });
+        let i4=document.getElementById('id4');
+        i4.addEventListener('mousedown',function j4(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i4.innerHTML=='X' || (i4.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i4.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i4.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i4.innerHTML==i5.innerHTML && i5.innerHTML==i6.innerHTML)
+                    {
+                        if(i4.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i4.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i1.innerHTML==i4.innerHTML && i4.innerHTML==i7.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+                                    
+
+                        }
+                    }
+                }
+            }
+        });
+        let i5=document.getElementById('id5');
+        i5.addEventListener('mousedown',function j5(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i5.innerHTML=='X' || (i5.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i5.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i5.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i4.innerHTML==i5.innerHTML && i5.innerHTML==i6.innerHTML)
+                    {
+                        if(i4.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i4.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i2.innerHTML==i5.innerHTML && i5.innerHTML==i8.innerHTML)
+                    {
+                        if(i2.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i2.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i1.innerHTML==i5.innerHTML && i5.innerHTML==i9.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i3.innerHTML==i5.innerHTML && i5.innerHTML==i7.innerHTML)
+                    {
+                        if(i3.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i3.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+
+
+                        }
+                    }
+                }
+            }
+        });
+        let i6=document.getElementById('id6');
+        i6.addEventListener('mousedown',function j6(){
+            console.log("2");
+            if(n==0)
+            alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i6.innerHTML=='X' || (i6.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i6.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i6.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }[0]
+                    ++i;
+                    if(i4.innerHTML==i5.innerHTML && i5.innerHTML==i6.innerHTML)
+                    {
+                        if(i4.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i4.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i3.innerHTML==i6.innerHTML && i6.innerHTML==i9.innerHTML)
+                    {
+                        if(i3.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i3.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+            
+
+                        }
+                    }
+                }
+            }
+            });
+        let i7=document.getElementById('id7');
+        i7.addEventListener('mousedown',function j7(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i7.innerHTML=='X' || (i7.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i7.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i7.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i7.innerHTML==i8.innerHTML && i8.innerHTML==i9.innerHTML)
+                    {
+                        if(i7.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i7.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i1.innerHTML==i4.innerHTML && i4.innerHTML==i7.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i3.innerHTML==i5.innerHTML && i5.innerHTML==i7.innerHTML)
+                    {
+                        if(i3.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i3.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+        
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+
+
+                        }
+                    }
+                }
+            }
+        });
+        let i8=document.getElementById('id8');
+        i8.addEventListener('mousedown',function j8(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i8.innerHTML=='X' || (i8.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i8.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i8.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i7.innerHTML==i8.innerHTML && i8.innerHTML==i9.innerHTML)
+                    {
+                        if(i7.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i7.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i2.innerHTML==i5.innerHTML && i5.innerHTML==i8.innerHTML)
+                    {
+                        if(i2.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i2.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+                                
+
+                        }
+                    }
+                }
+            }
+        });
+        let i9=document.getElementById('id9');
+        i9.addEventListener('mousedown',function j9(){
+            if(n==0)
+                alert("First Enter Player Names and then play");
+            else
+            {
+
+                if(i9.innerHTML=='X' || (i9.innerHTML=='0'))
+                alert("This block is already filled so please place your Character at some another block");
+                else
+                {
+                    if(i%2==0)
+                    {
+                        i9.innerHTML='X';
+                        turn.innerHTML=name2[0]+"-'0'";
+                    }
+                    else    
+                    {
+                        i9.innerHTML='0';
+                        turn.innerHTML=name1[0]+"-'X'";
+                    }
+                    ++i;
+                    if(i7.innerHTML==i8.innerHTML && i8.innerHTML==i9.innerHTML)
+                    {
+                        if(i7.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i7.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i3.innerHTML==i6.innerHTML && i6.innerHTML==i9.innerHTML)
+                    {
+                        if(i3.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i3.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else if(i1.innerHTML==i5.innerHTML && i5.innerHTML==i9.innerHTML)
+                    {
+                        if(i1.innerHTML=='X')
+                        {
+                            alert(name1 +  " Wins the GAME");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                        else if(i1.innerHTML=='0')
+                        {
+                            alert(name2 + " Wins the GAME" );
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }  
+                        }
+                    }
+                    else
+                    {
+                        ++j;
+                        if(j==9)
+                        {
+                            alert("Game DRAW!");
+                            let t=confirm("Want to play with same names again?");
+                                if(t)
+                                {
+                                    reset();
+                                }
+                                else
+                                {
+                                    newG();
+                                }
+        
+
+                        }
+                    }
+                }
+            }
+        });
+        
+        </script>
+        </body>
+        </html>
